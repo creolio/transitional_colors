@@ -9,9 +9,12 @@ orange = (255, 127.5, 0)
 yellow = (255, 255, 0)
 green = (0, 127.5, 0)
 
+lower_luminance_limit = 0.25
+upper_luminance_limit = 0.75
+
 colors = [red, orange, yellow, green]
-number_of_colors_between = 1
-luminance_limits = (0.25, 0.75)
+number_of_colors_between = 3
+luminance_limits = (lower_luminance_limit, upper_luminance_limit)
 
 red_to_green_colors_list = generate_transitional_colors_list(colors, number_of_colors_between, luminance_limits)
 red_to_green_colors_dict = generate_transitional_colors_dictionary(colors, number_of_colors_between, luminance_limits)
