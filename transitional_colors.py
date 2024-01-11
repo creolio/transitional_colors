@@ -30,8 +30,7 @@ def format_color_code(color: Tuple[int, int, int]) -> Tuple[int, int, int]:
     return adjust_color_to_luminance(color, calculate_luminance(color))
 
 
-# accept a list of tuples (r, g, b) and number_of_colors_between as input and return a list of tuples (r, g, b) that include the original colors, formatted, and the intermediary colors
-def generate_transitional_colors(
+def generate_transitional_colors_list(
     colors: List[Tuple[int, int, int]], number_of_colors_between: int
 ) -> List[Tuple[int, int, int]]:
     colors_formatted = [format_color_code(color) for color in colors]
@@ -45,5 +44,10 @@ def generate_transitional_colors(
     return color_range
 
 
-def convert_to_ascending_dictionary(list: List[Tuple[int, int, int]]) -> str:
-    return {i: f"rgb{color}" for i, color in enumerate(list)}
+def convert_to_ascending_dictionary(color_list: List[Tuple[int, int, int]]) -> dict:
+    return {i: f"rgb{color}" for i, color in enumerate(color_list)}
+
+
+def generate_transitional_colors_dictionary(colors: List[Tuple[int, int, int]], number_of_colors_between: int) -> dict:
+    colors_list = generate_transitional_colors_list(colors, number_of_colors_between)
+    return convert_to_ascending_dictionary(colors_list)
